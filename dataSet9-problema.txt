@@ -1,0 +1,1 @@
+Este set de datos contiene las diferencias, en segundos, entre una llamada y la siguiente en un callcenter de una gran empresa de telecomunicaciones, para 10.000 llamadas entrantes.Se le pide calcular la probabilidad de que la siguiente llamada llegue en menos de 0.5 segundos.
