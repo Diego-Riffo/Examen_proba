@@ -27,17 +27,14 @@ print(contador)#cantidad de datos en el csv
 media=(x/10000)
 print("Media: ",media)
 
-cantElementos=max(datosCsv)-min(datosCsv)
-cantElementos2=int(cantElementos*1000000)
-#print(cantElementos)
-print(cantElementos2)
 
 expX=[]
 expY=[]
 #Setear las listas con los valores correspondientes
-for i in range(cantElementos2):
-    expX.append(0.000002+0.000001*i)
-    expY.append(exp(0.000002+0.000001*i, media))
+datosCsvOrd=sorted(datosCsv)
+for i in range(contador):
+    expX.append(datosCsvOrd[i])
+    expY.append(exp(datosCsvOrd[i], media))
 
 
 print("Hola wapo, comenzaremos a graficar")
