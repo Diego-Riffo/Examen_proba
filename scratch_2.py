@@ -25,10 +25,10 @@ with open('dataSet9.csv') as File:
     for i in range(10000):
         if(array[i]<0.5):
             l=l+1
-    print(l / 10000)
+    print("Fuerza bruta :", (l / 10000))
 
 #Exponencial
     e = 2.718281828459045
     exp = 1-pow(e,-(0.5/media))
-    print(exp)
+    print("Distribucíon exponencial: ",exp)
 
