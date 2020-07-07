@@ -12,13 +12,13 @@ with open('dataSet9.csv') as File:
         array.append(a)
 
     media=(x/10000)
-    print(media)
+    print("Media: ",media)
 
     #Minimo valor en el array
-    print(min(array))
+    print("Minima: ",min(array))
 
     #Maximo valor en el array
-    print(max(array))
+    print("Maxima",max(array))
 # Probabilidad de que la siguiente llamada sea en menos de 0.5 segundos
 
 #Fuerza bruta
@@ -31,4 +31,3 @@ with open('dataSet9.csv') as File:
     e = 2.718281828459045
     exp = 1-pow(e,-(0.5/media))
     print("Distribucíon exponencial: ",exp)
-
