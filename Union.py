@@ -28,12 +28,13 @@ lista1 = []
 lista2=[]
 
 #Numero de Intervalos = 14, #Por formula de sturges, pero entre mas intervalos, es mas representativo
-AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/14
+#pero para que todos los intervalos tengan el mismo rango, se eligira 16, ya que 10.000/16=625, un entero
+AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/16
 
 IndiceCsv=0
 IndiceCsv2=0
 
-for i in range(14):
+for i in range(16):
     inicio=IndiceCsv
     FrecIntervalo=0
     while(datosCsvOrdenados[IndiceCsv]<(datosCsvOrdenados[inicio]+AmplitudIntervalo)):
