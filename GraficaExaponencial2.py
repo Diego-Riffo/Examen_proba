@@ -6,8 +6,7 @@ from scipy.stats import expon
 import math
 
 def exp(datoX, media):
-    exp = (1/media)* math.e **(-datoX/media)
-    return exp
+    return (1/media)* math.e **-(datoX/media)
 
 
 
