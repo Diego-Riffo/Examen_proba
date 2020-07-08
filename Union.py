@@ -6,11 +6,7 @@ import math
 from numpy import arange
 
 
-def exp(datoX, media):
-    exp = (1/media)* math.e **(-datoX/media)
-    return exp
-
-
+############ Leyendo y almacenando datos del CSV########################
 datosCsv = []
 contador = 0
 x=0
@@ -23,6 +19,9 @@ with open('dataSet9.csv', newline='') as File:
         datosCsv.append(float(row[0]))
 
 
+
+
+#################      Histograma a partir de los datos del CSV          ###############
 datosCsvOrdenados = sorted(datosCsv)
 print(len(datosCsvOrdenados))
 print(contador)
@@ -58,8 +57,12 @@ for i in range(25):
 plt.plot(lista1, lista2)
 
 
-############### Exponencial ###################
-   
+######################### Exponencial #############################
+def exp(datoX, media):
+    exp = (1/media)* math.e **(-datoX/media)
+    return exp
+
+
 print(contador)#cantidad de datos en el csv
 media=(x/10000)
 print("Media: ",media)
