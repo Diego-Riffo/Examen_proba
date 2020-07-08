@@ -50,7 +50,7 @@ for i in range(16):
     lista1.append(datosCsvOrdenados[IndiceCsv])
     lista2.append(((FrecIntervalo/10000))/AmplitudIntervalo)
 
-plt.plot(lista1, lista2)
+plt.plot(lista1, lista2, label="Histograma de Densidad a partir de los datos")
 
 
 ######################### Exponencial #############################
@@ -69,9 +69,16 @@ for i in range(contador):
     expY.append(exp(datosCsvOrd[i], media))
 
 
-plt.plot(expX,expY)
-plt.xlabel('Datos')
+plt.plot(expX,expY, label="Distribucion de Densidad Exponencial")
+plt.annotate("β ≈ "+str(round(media, 4)), 
+             xy=(0.04, exp(0.04,0.3)),  
+            xytext=(0.04+0.15, exp(0.04,0.3)+0.15), textcoords='data',
+            arrowprops=dict(arrowstyle="->",
+                            connectionstyle="arc3")
+            )
+plt.xlabel('Diferencias, en segundos, entre una llamada y la siguiente en un callcenter')
 plt.ylabel('Densidad')
-plt.title('Examen Proba')
+plt.legend(loc='upper right')
+plt.title('Examen Probabilidades')
 plt.show()
 
