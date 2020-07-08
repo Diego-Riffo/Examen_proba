@@ -22,14 +22,14 @@ print(contador)
 lista1 = []
 lista2=[]
 
-#Numero de Intervalos = 25
-AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/25
+#Numero de Intervalos = 14, #Por formula de sturges, pero entre mas intervalos, es mas representativo
+AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/100
 print(AmplitudIntervalo)
 
 IndiceCsv=0
 IndiceCsv2=0
 FrecAbs=0
-for i in range(25):
+for i in range(100):
     inicio=IndiceCsv
     FrecIntervalo=0
     while(datosCsvOrdenados[IndiceCsv]<(datosCsvOrdenados[inicio]+AmplitudIntervalo)):
@@ -43,9 +43,10 @@ for i in range(25):
     FrecAbs+=FrecIntervalo
 
     lista1.append(datosCsvOrdenados[inicio])
-    lista2.append(FrecIntervalo/10000)
+    lista2.append(((FrecIntervalo/10000))/AmplitudIntervalo)
     lista1.append(datosCsvOrdenados[IndiceCsv])
-    lista2.append(FrecIntervalo/10000)
+    lista2.append(((FrecIntervalo/10000))/AmplitudIntervalo)
+
 
 
 print("Comenzaremos a graficar")
@@ -54,7 +55,7 @@ print(len(lista2))
 print(FrecAbs)
 plt.plot(lista1, lista2)
 plt.xlabel('Tiempos')
-plt.ylabel('Frecuencia relativa')
+plt.ylabel('Densidad')
 plt.title('Examen Proba')
 
 plt.show()

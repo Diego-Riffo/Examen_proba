@@ -14,7 +14,6 @@ with open('dataSet9.csv', newline='') as File:
     reader = csv.reader(File)
     for row in reader:
         contador=contador+1
-        #print(row)
         x=float(row[0])+x
         datosCsv.append(float(row[0]))
 
@@ -23,20 +22,18 @@ with open('dataSet9.csv', newline='') as File:
 
 #################      Histograma a partir de los datos del CSV          ###############
 datosCsvOrdenados = sorted(datosCsv)
-print(len(datosCsvOrdenados))
-print(contador)
+
+
 lista1 = []
 lista2=[]
 
-##Numero de intervalos = 25
-
-AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/25
-print(AmplitudIntervalo)
+#Numero de Intervalos = 14, #Por formula de sturges, pero entre mas intervalos, es mas representativo
+AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/14
 
 IndiceCsv=0
 IndiceCsv2=0
-FrecAbs=0
-for i in range(25):
+
+for i in range(14):
     inicio=IndiceCsv
     FrecIntervalo=0
     while(datosCsvOrdenados[IndiceCsv]<(datosCsvOrdenados[inicio]+AmplitudIntervalo)):
@@ -45,14 +42,12 @@ for i in range(25):
         if(IndiceCsv==10000):
             IndiceCsv-=1
             break
-    
-    print(FrecIntervalo)
-    FrecAbs+=FrecIntervalo
+
 
     lista1.append(datosCsvOrdenados[inicio])
-    lista2.append(FrecIntervalo/1000)
+    lista2.append(((FrecIntervalo/10000))/AmplitudIntervalo)
     lista1.append(datosCsvOrdenados[IndiceCsv])
-    lista2.append(FrecIntervalo/1000)
+    lista2.append(((FrecIntervalo/10000))/AmplitudIntervalo)
 
 plt.plot(lista1, lista2)
 
@@ -63,26 +58,19 @@ def exp(datoX, media):
     return exp
 
 
-print(contador)#cantidad de datos en el csv
 media=(x/10000)
-print("Media: ",media)
-
-
 expX=[]
 expY=[]
-#Setear las listas con los valores correspondientes
+#Llenar las listas con los valores de al distribucion binomial
 datosCsvOrd=sorted(datosCsv)
 for i in range(contador):
     expX.append(datosCsvOrd[i])
     expY.append(exp(datosCsvOrd[i], media))
 
 
-print("Hola wapo, comenzaremos a graficar")
-print(len(expX))
-print(len(expY))
 plt.plot(expX,expY)
 plt.xlabel('Datos')
-plt.ylabel('Frecuencia')
+plt.ylabel('Densidad')
 plt.title('Examen Proba')
 plt.show()
 
