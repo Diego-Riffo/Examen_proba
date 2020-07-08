@@ -23,15 +23,13 @@ with open('dataSet9.csv', newline='') as File:
         datosCsv.append(float(row[0]))
 
 
-
-#Estas listas son los ejes de la grafica, lista 1 =ejex ; lista2=eje y
-#Donde en la lista 1 va el dato y en la lista 2, la frecuencia del dato i de la lista1
 datosCsvOrdenados = sorted(datosCsv)
 print(len(datosCsvOrdenados))
 print(contador)
 lista1 = []
 lista2=[]
-#Formula de Sturges, numero de intervalos =16
+
+##Numero de intervalos = 25
 
 AmplitudIntervalo=(max(datosCsvOrdenados)-min(datosCsvOrdenados))/25
 print(AmplitudIntervalo)
@@ -57,17 +55,10 @@ for i in range(25):
     lista1.append(datosCsvOrdenados[IndiceCsv])
     lista2.append(FrecIntervalo/1000)
 
-
-
-print(len(lista1))
-print(len(lista2))
 plt.plot(lista1, lista2)
 
-#plt.yticks(range(6))
 
-#plt.xticks(arange(0.0, 3, 0.5))
-
-
+############### Exponencial ###################
    
 print(contador)#cantidad de datos en el csv
 media=(x/10000)
