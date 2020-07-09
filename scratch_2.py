@@ -31,3 +31,5 @@ with open('dataSet9.csv') as File:
     e = 2.718281828459045
     exp = 1-pow(e,-(0.5/media))
     print("Distribucíon exponencial: ",exp)
+
+print(max(array))
